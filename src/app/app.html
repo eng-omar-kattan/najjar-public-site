@@ -1,0 +1,47 @@
+<div class="page-shell" [class.english]="language() === 'en'">
+  <header class="nav-wrap">
+    <a class="brand" href="#top" aria-label="Home" (click)="closeMenu()"><span class="brand-mark">ن</span><span>نجّار <small>NAJJAR</small></span></a>
+    <button class="menu-toggle" type="button" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()"><span></span><span></span><span></span></button>
+    <nav [class.open]="menuOpen()">
+      @if (language() === 'ar') { <a href="#why" (click)="closeMenu()">لماذا نجّار؟</a><a href="#workflow" (click)="closeMenu()">كيف يعمل</a><a href="#features" (click)="closeMenu()">الإمكانات</a><a href="#vision" (click)="closeMenu()">الرؤية</a> }
+      @else { <a href="#why" (click)="closeMenu()">Why Najjar</a><a href="#workflow" (click)="closeMenu()">How it works</a><a href="#features" (click)="closeMenu()">Capabilities</a><a href="#vision" (click)="closeMenu()">Vision</a> }
+    </nav>
+    <div class="language-switch" aria-label="Language selector"><button [class.active]="language() === 'ar'" (click)="setLanguage('ar')">ع</button><span></span><button [class.active]="language() === 'en'" (click)="setLanguage('en')">EN</button></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ language() === 'ar' ? 'من الإشارة الأولى إلى أثرٍ قابل للنشر' : 'From the first signal to publishable impact' }}</p>
+        @if (language() === 'ar') { <h1>المعرفة لا تنقصنا.<br><em>ما ينقصنا هو المسار.</em></h1><p class="hero-lead">مساحة عمل بحثية عربية تجمع الرصد، والتحقق، والتحليل، وإدارة المصادر، وصناعة المحتوى في سياق واحد واضح.</p><a class="primary-button" href="#workflow">استكشف المنهجية <span>←</span></a> }
+        @else { <h1>Knowledge is abundant.<br><em>What’s missing is the path.</em></h1><p class="hero-lead">An Arabic-first research workspace connecting monitoring, verification, analysis, source management, and content production in one clear context.</p><a class="primary-button" href="#workflow">Explore the methodology <span>→</span></a> }
+      </div>
+      <div class="hero-visual" aria-label="Research workflow preview">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="insight-card card-main"><div class="card-top"><span class="pulse"></span><b>{{ language() === 'ar' ? 'قضية قيد البحث' : 'Active research case' }}</b><small>72%</small></div><h3>{{ language() === 'ar' ? 'تحولات اقتصاد المعرفة العربي' : 'Shifts in the Arab knowledge economy' }}</h3><div class="tags"><span>{{ language() === 'ar' ? '14 إشارة' : '14 signals' }}</span><span>{{ language() === 'ar' ? '8 مصادر' : '8 sources' }}</span><span>{{ language() === 'ar' ? 'ثقة مرتفعة' : 'High confidence' }}</span></div><div class="progress"><i></i></div></div>
+        <div class="insight-card floating-card"><small>{{ language() === 'ar' ? 'سجل أولي' : 'Primary record' }}</small><strong>01</strong><span>{{ language() === 'ar' ? 'وثيقة رسمية موثقة' : 'Verified official document' }}</span></div>
+        <div class="source-pill">90 <span>{{ language() === 'ar' ? 'مصدراً منظماً' : 'curated sources' }}</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip"><span>{{ language() === 'ar' ? 'مصمم للباحثين والمؤلفين وفرق المعرفة' : 'Designed for researchers, authors, and knowledge teams' }}</span><div><b>90</b> {{ language() === 'ar' ? 'مصدراً' : 'sources' }}</div><div><b>1</b> {{ language() === 'ar' ? 'سياق متصل' : 'connected context' }}</div><div><b>∞</b> {{ language() === 'ar' ? 'مسارات معرفة' : 'knowledge paths' }}</div></section>
+
+    <section class="section split" id="why"><div><p class="section-number">01 — {{ language() === 'ar' ? 'المشكلة' : 'The problem' }}</p><h2>{{ language() === 'ar' ? 'بحثك موزّع بين عشرات الأدوات.' : 'Your research is scattered across too many tools.' }}</h2></div><div class="problem-copy"><p>{{ language() === 'ar' ? 'رابط في تطبيق، ملاحظة في مكان آخر، ملف لا تتذكر مصدره، وفكرة ممتازة فقدت سياقها. لا يحتاج الباحث إلى صندوق جديد للمعلومات؛ بل إلى نظام يحفظ العلاقة بينها.' : 'A link in one app, a note in another, a file with a forgotten source, and a valuable idea stripped of context. Researchers do not need another information box—they need a system that preserves relationships.' }}</p><div class="quote">“{{ language() === 'ar' ? 'كل إشارة تعرف لماذا حُفظت، وكل مصدر يعرف أين استُخدم.' : 'Every signal knows why it was saved, and every source knows where it was used.' }}”</div></div></section>
+
+    <section class="section workflow-section" id="workflow"><p class="section-number">02 — {{ language() === 'ar' ? 'المسار' : 'The path' }}</p><h2>{{ language() === 'ar' ? 'من الرصد إلى الإنتاج، دون فقدان السياق.' : 'From monitoring to production, without losing context.' }}</h2><div class="workflow-grid">
+      @for (item of (language() === 'ar' ? [['01','ارصد','التقط الإشارات من المصادر التي تهمك.'],['02','اربط','صِل الإشارة بقضية ومحور وسؤال بحثي.'],['03','تحقّق','قيّم المصدر والادعاء ومستوى الثقة.'],['04','حلّل','حوّل المادة المتفرقة إلى حجج وأنماط.'],['05','أنتج','ابنِ مسودة موثقة وجاهزة للتحرير.']] : [['01','Monitor','Capture signals from sources that matter.'],['02','Connect','Link each signal to a case, axis, and question.'],['03','Verify','Assess sources, claims, and confidence.'],['04','Analyze','Turn fragments into arguments and patterns.'],['05','Produce','Build a sourced draft ready for editing.']]); track item[0]) { <article><span>{{ item[0] }}</span><h3>{{ item[1] }}</h3><p>{{ item[2] }}</p></article> }
+    </div></section>
+
+    <section class="section features" id="features"><div class="features-heading"><p class="section-number">03 — {{ language() === 'ar' ? 'الإمكانات' : 'Capabilities' }}</p><h2>{{ language() === 'ar' ? 'بنيةٌ تحترم طريقة تفكير الباحث.' : 'A structure that respects how researchers think.' }}</h2></div><div class="feature-grid">
+      <article class="feature featured"><span class="icon">⌁</span><h3>{{ language() === 'ar' ? 'قضايا بحثية حيّة' : 'Living research cases' }}</h3><p>{{ language() === 'ar' ? 'مساحات تتطور مع الأسئلة والإشارات والأدلة، لا ملفات جامدة تنتهي صلاحيتها.' : 'Spaces that evolve with questions, signals, and evidence—not static files that expire.' }}</p></article>
+      <article class="feature"><span class="icon">◎</span><h3>{{ language() === 'ar' ? 'ثقة ظاهرة' : 'Visible confidence' }}</h3><p>{{ language() === 'ar' ? 'مستوى الثقة واضح، والقرار التحريري يبقى بيد الإنسان.' : 'Confidence is explicit while editorial judgment stays human.' }}</p></article>
+      <article class="feature"><span class="icon">◫</span><h3>Primary Records</h3><p>{{ language() === 'ar' ? 'مسار مستقل للعقود والسجلات الحكومية والقضائية والتشريعية.' : 'A dedicated path for contracts, government, court, and legislative records.' }}</p></article>
+      <article class="feature"><span class="icon">◇</span><h3>{{ language() === 'ar' ? 'عمل جماعي منظم' : 'Structured teamwork' }}</h3><p>{{ language() === 'ar' ? 'مسؤوليات قابلة للتوزيع مع بقاء الاعتماد النهائي واضحاً.' : 'Delegated responsibilities with an explicit final approval owner.' }}</p></article>
+      <article class="feature"><span class="icon">↗</span><h3>{{ language() === 'ar' ? 'من البحث إلى المحتوى' : 'Research to content' }}</h3><p>{{ language() === 'ar' ? 'فرص محتوى مبنية على الأدلة، لا على التخمين أو الترند وحده.' : 'Evidence-led content opportunities, beyond guesswork and trends.' }}</p></article>
+    </div></section>
+
+    <section class="vision" id="vision"><div class="vision-glow"></div><p class="section-number">04 — {{ language() === 'ar' ? 'الرؤية' : 'The vision' }}</p>@if (language() === 'ar') { <h2>أن يمتلك كل باحث <em>ذاكرةً مؤسسية</em><br>لا تضيع بانتهاء المشروع.</h2><p>نجّار ليس بديلاً عن عقل الباحث. إنه البنية التي تمنح هذا العقل وقتاً أكبر للسؤال، والفهم، والكتابة.</p> } @else { <h2>Give every researcher an <em>institutional memory</em><br>that outlives the project.</h2><p>Najjar does not replace the researcher’s mind. It gives that mind more time to question, understand, and write.</p> }<a class="light-button" href="mailto:hello@example.com">{{ language() === 'ar' ? 'تواصل معنا' : 'Contact us' }}</a></section>
+  </main>
+
+  <footer><div class="brand footer-brand"><span class="brand-mark">ن</span><span>نجّار <small>NAJJAR</small></span></div><p>{{ language() === 'ar' ? 'مساحة عمل عربية للبحث وصناعة المعرفة.' : 'An Arabic-first workspace for research and knowledge production.' }}</p><small>© {{ year }} Najjar. {{ language() === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</small></footer>
+</div>
