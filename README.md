@@ -7,7 +7,7 @@ Public, multilingual marketing SPA for the Najjar research workspace. This repos
 - Static public content only
 - No database, authentication, analytics, cookies, or personal-data collection
 - Arabic-first, with English switching and automatic RTL/LTR document direction
-- The email link is a placeholder (`hello@example.com`) until the official contact address is chosen
+- Public contact email: `eng.omar.kattan@gmail.com`
 
 ## Local development
 
