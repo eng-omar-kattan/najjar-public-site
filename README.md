@@ -27,9 +27,10 @@ npm run build
 
 ## Firebase Hosting setup
 
-1. Create a Firebase project and enable Hosting. No other Firebase services are needed.
-2. In the GitHub repository, create the variable `FIREBASE_PROJECT_ID`.
-3. Create a Firebase service account limited to Hosting deployment, save its JSON as the repository secret `FIREBASE_SERVICE_ACCOUNT_NAJJAR_PUBLIC_SITE`, and never commit that JSON.
-4. Push to `main`. `.github/workflows/firebase-hosting.yml` tests, builds, and deploys the site.
+1. Firebase project `najjar-website` is already selected in `.firebaserc` and the deployment workflow.
+2. Create a Firebase service account limited to Hosting deployment, save its JSON as the repository secret `FIREBASE_SERVICE_ACCOUNT_NAJJAR_PUBLIC_SITE`, and never commit that JSON.
+3. Push to `main`. `.github/workflows/firebase-hosting.yml` tests, builds, and deploys the site.
+
+The Firebase web SDK and Analytics are intentionally not initialized: this site only uses Firebase Hosting and collects no visitor data.
 
 Firebase serves `dist/najjar-public-site/browser` and rewrites navigation to `index.html`.
