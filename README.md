@@ -8,6 +8,7 @@ Public, multilingual marketing SPA for the Najjar research workspace. This repos
 - No database, authentication, analytics, cookies, or personal-data collection
 - Arabic-first, with English switching and automatic RTL/LTR document direction
 - Public contact email: `eng.omar.kattan@gmail.com`
+- Public sections cover the research lifecycle, the 90-source radar, evidence lineage, confidence and uncertainty, approval governance, collaboration, institutional memory, and intended users
 
 ## Local development
 
