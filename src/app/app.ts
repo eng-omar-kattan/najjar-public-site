@@ -16,6 +16,6 @@ export class App {
   private applyLanguage(language: Language): void {
     this.document.documentElement.lang = language;
     this.document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-    this.document.title = language === 'ar' ? 'نجّار | مساحة العمل البحثية المتكاملة' : 'Najjar | The integrated research workspace';
+    this.document.title = language === 'ar' ? 'منسج | مساحة عملك للبحث والكتابة' : 'Mansaj | Your research and writing workspace';
   }
 }
