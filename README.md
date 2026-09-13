@@ -1,6 +1,6 @@
-# Najjar Public Site
+# Mansaj Public Site
 
-Public, multilingual marketing SPA for the Najjar research workspace. This repository is intentionally independent from `Najjar-KB` and the product application.
+Public, multilingual marketing SPA for **Mansaj (منسج)**, an Arabic-first research and writing workspace. The infrastructure repository retains its original technical name and remains independent from the knowledge base and product application.
 
 ## Boundaries
 
