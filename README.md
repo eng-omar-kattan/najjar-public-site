@@ -8,7 +8,7 @@ Public, multilingual marketing SPA for **Mansaj (منسج)**, an Arabic-first re
 - No database, authentication, analytics, cookies, or personal-data collection
 - Arabic-first, with English switching and automatic RTL/LTR document direction
 - Public contact email: `eng.omar.kattan@gmail.com`
-- Public sections cover the research lifecycle, the 90-source radar, evidence lineage, confidence and uncertainty, approval governance, collaboration, institutional memory, and intended users
+- Public sections lead with customer problems, outcomes, intended users, and trust; the day-to-day workflow appears only as supporting detail
 
 ## Local development
 
