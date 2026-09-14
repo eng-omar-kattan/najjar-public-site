@@ -1,22 +1,21 @@
 <div class="page-shell" [class.english]="language() === 'en'">
+  <div class="naming-notice">
+    <span>{{ language() === 'ar' ? 'اسم تجريبي مؤقت' : 'Temporary project name' }}</span>
+    <p>{{ language() === 'ar' ? 'طُلب اعتماد الاسم النهائي للمشروع عدة مرات، ولم يُحسم حتى الآن.' : 'A final project name has been requested several times and has not yet been approved.' }}</p>
+  </div>
+
   <header class="nav-wrap">
-    <a class="brand" href="#top" aria-label="Mansaj home" (click)="closeMenu()">
-      <span class="brand-mark" aria-hidden="true"><i></i></span>
-      <span>{{ language() === 'ar' ? 'مَنسَج' : 'Mansaj' }}<small>MANSAJ</small></span>
+    <a class="brand" href="#top" aria-label="Project home" (click)="closeMenu()">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>{{ language() === 'ar' ? 'اسم قيد الانتظار' : 'Name Pending' }}<small>{{ language() === 'ar' ? 'مشروع معرفي وإعلامي' : 'RESEARCH AND MEDIA PROJECT' }}</small></span>
     </a>
     <button class="menu-toggle" type="button" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav [class.open]="menuOpen()">
-      @if (language() === 'ar') {
-        <a href="#product" (click)="closeMenu()">ما هو منسج؟</a>
-        <a href="#benefits" (click)="closeMenu()">ما الذي يتغير؟</a>
-        <a href="#for-whom" (click)="closeMenu()">لمن؟</a>
-        <a href="#trust" (click)="closeMenu()">لماذا تثق به؟</a>
-      } @else {
-        <a href="#product" (click)="closeMenu()">What is Mansaj?</a>
-        <a href="#benefits" (click)="closeMenu()">What changes?</a>
-        <a href="#for-whom" (click)="closeMenu()">Who is it for?</a>
-        <a href="#trust" (click)="closeMenu()">Why trust it?</a>
-      }
+      <a href="#about" (click)="closeMenu()">{{ language() === 'ar' ? 'المشروع' : 'Project' }}</a>
+      <a href="#questions" (click)="closeMenu()">{{ language() === 'ar' ? 'أسئلتنا' : 'Questions' }}</a>
+      <a href="#fields" (click)="closeMenu()">{{ language() === 'ar' ? 'مجالات البحث' : 'Research fields' }}</a>
+      <a href="#research-media" (click)="closeMenu()">{{ language() === 'ar' ? 'البحث والإعلام' : 'Research and media' }}</a>
+      <a href="#join" (click)="closeMenu()">{{ language() === 'ar' ? 'المشاركة' : 'Participate' }}</a>
     </nav>
     <div class="language-switch" aria-label="Language selector">
       <button [class.active]="language() === 'ar'" (click)="setLanguage('ar')">ع</button><span></span>
@@ -26,154 +25,179 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-index"><span>01</span><i></i><small>{{ language() === 'ar' ? 'الفكرة' : 'THE IDEA' }}</small></div>
       <div class="hero-copy">
-        <p class="eyebrow">{{ language() === 'ar' ? 'مساحة عمل عربية للبحث والكتابة' : 'An Arabic-first workspace for research and writing' }}</p>
+        <p class="eyebrow">{{ language() === 'ar' ? 'مشروع معرفي وإعلامي' : 'A RESEARCH AND MEDIA PROJECT' }}</p>
         @if (language() === 'ar') {
-          <h1>لا تدع بحثك يتبعثر<br><em>بين الروابط والملفات.</em></h1>
-          <p class="hero-lead">منسج يجمع ما تتابعه وتفكر فيه وتكتبه في مساحة واحدة، ويساعدك على تحويل المصادر والأفكار المتناثرة إلى بحث موثوق ومحتوى متماسك قابل للنشر.</p>
-          <div class="hero-actions"><a class="primary-button" href="#product">اكتشف منسج <span>←</span></a><a class="text-link" href="#for-whom">هل يناسب عملي؟</a></div>
+          <h1>نبحث لفهم العالم،<br><em>ونحوّل المعرفة</em><br>إلى محتوى يصل إلى الناس.</h1>
+          <p class="hero-lead">منظومة بحثية وإعلامية لفهم التحولات الكبرى، وبناء معرفة مترابطة حولها، وتحويل نتائج البحث والتحليل مباشرة إلى محتوى إعلامي ومرئي موثوق ومؤثر.</p>
+          <div class="hero-actions"><a class="primary-button" href="#about">تعرّف على المشروع</a><a class="text-link" href="#join">انضم إلى الباحثين <span>↙</span></a></div>
         } @else {
-          <h1>Stop letting your research scatter<br><em>across links and files.</em></h1>
-          <p class="hero-lead">Mansaj brings what you follow, think, and write into one workspace—helping you turn scattered sources and ideas into trustworthy research and coherent, publishable content.</p>
-          <div class="hero-actions"><a class="primary-button" href="#product">Discover Mansaj <span>→</span></a><a class="text-link" href="#for-whom">Is it right for me?</a></div>
+          <h1>We research to understand the world,<br><em>then turn knowledge</em><br>into content that reaches people.</h1>
+          <p class="hero-lead">A research and media initiative that studies major transformations, builds connected knowledge around them, and turns research and analysis directly into trustworthy, influential visual media.</p>
+          <div class="hero-actions"><a class="primary-button" href="#about">Discover the project</a><a class="text-link" href="#join">Join the researchers <span>↘</span></a></div>
         }
       </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="knowledge-ring ring-one"></div><div class="knowledge-ring ring-two"></div>
+        <span class="orbit-word word-one">{{ language() === 'ar' ? 'السياق' : 'CONTEXT' }}</span>
+        <span class="orbit-word word-two">{{ language() === 'ar' ? 'الدليل' : 'EVIDENCE' }}</span>
+        <span class="orbit-word word-three">{{ language() === 'ar' ? 'السؤال' : 'QUESTION' }}</span>
+        <b>؟</b>
+      </div>
+      <a class="scroll-mark" href="#about"><span></span>{{ language() === 'ar' ? 'تابع القراءة' : 'KEEP READING' }}</a>
+    </section>
 
-      <div class="hero-product" aria-label="Mansaj workspace preview">
-        <div class="product-window">
-          <div class="window-bar"><span></span><span></span><span></span><small>{{ language() === 'ar' ? 'مساحة عملي' : 'My workspace' }}</small></div>
-          <div class="window-body">
-            <aside><b class="mini-brand"></b><i></i><i></i><i></i><i></i></aside>
-            <div class="workspace-preview">
-              <p>{{ language() === 'ar' ? 'صباح الخير، بحثك في مكانه.' : 'Good morning. Your research is in place.' }}</p>
-              <div class="preview-question"><small>{{ language() === 'ar' ? 'سؤالك النشط' : 'Your active question' }}</small><strong>{{ language() === 'ar' ? 'كيف تتغير صناعة المعرفة العربية؟' : 'How is Arab knowledge production changing?' }}</strong><div><span>{{ language() === 'ar' ? 'مصادر مرتبطة' : 'Sources connected' }}</span><span>{{ language() === 'ar' ? 'مسودة تتطور' : 'Draft developing' }}</span></div></div>
-              <div class="preview-grid"><article><small>{{ language() === 'ar' ? 'فكرة محفوظة بسياقها' : 'Idea saved with context' }}</small><b>“</b><p>{{ language() === 'ar' ? 'لن تضطر للبحث عنها من جديد.' : 'You will not have to rediscover it.' }}</p></article><article><small>{{ language() === 'ar' ? 'جاهز للكتابة' : 'Ready to write' }}</small><strong>68%</strong><i><em></em></i></article></div>
-            </div>
+    <section class="about-section section" id="about">
+      <div class="section-label"><span>02</span><p>{{ language() === 'ar' ? 'ما هو المشروع؟' : 'WHAT IS THE PROJECT?' }}</p></div>
+      <div class="about-copy">
+        <h2>{{ language() === 'ar' ? 'البحث والتحليل وصناعة المحتوى ضمن مسار واحد.' : 'Research, analysis, and media production in one continuous path.' }}</h2>
+        <p>{{ language() === 'ar' ? 'نبحث في القضايا والظواهر التي تشكل العالم من حولنا، ونسعى إلى فهمها بجمع الأدلة وربطها وتحليلها داخل سياقاتها السياسية والاقتصادية والأمنية والتاريخية والتكنولوجية والإعلامية.' : 'We investigate the issues and phenomena shaping the world around us. We collect, connect, and analyze evidence within its political, economic, security, historical, technological, and media contexts.' }}</p>
+        <p>{{ language() === 'ar' ? 'المعرفة هنا لا تتوقف عند حدود البحث؛ فهي تُبنى منذ البداية لتتحول إلى محتوى إعلامي ومرئي يقدم للجمهور فهماً أعمق للواقع.' : 'Knowledge here does not stop at research. From the beginning, it is built to become media and visual content that gives audiences a deeper understanding of reality.' }}</p>
+      </div>
+      <div class="idea-path" aria-label="Research to audience path">
+        @for (item of (language() === 'ar' ? ['البحث','الفهم','المحتوى','الجمهور'] : ['Research','Understanding','Content','Audience']); track item) {
+          <div><span>0{{ $index + 1 }}</span><strong>{{ item }}</strong></div>@if (!$last) { <i>←</i> }
+        }
+      </div>
+    </section>
+
+    <section class="problem-section">
+      <div class="section problem-inner">
+        <div class="section-label light"><span>03</span><p>{{ language() === 'ar' ? 'لماذا وُجدنا؟' : 'WHY WE EXIST' }}</p></div>
+        <div class="problem-copy">
+          <p class="overline">{{ language() === 'ar' ? 'المشكلة ليست نقص المعلومات' : 'THE PROBLEM IS NOT A LACK OF INFORMATION' }}</p>
+          <h2>{{ language() === 'ar' ? 'المعلومات موجودة في كل مكان. الفهم ليس كذلك.' : 'Information is everywhere. Understanding is not.' }}</h2>
+          <div class="problem-columns">
+            <p>{{ language() === 'ar' ? 'الأخبار تتسارع، والمصادر تتكاثر، والتفسيرات تتنافس. وسط ذلك تضيع العلاقات بين الأحداث والاتجاهات والقوى التي تقف خلفها.' : 'News accelerates, sources multiply, and interpretations compete. The relationships between events, trends, and the forces behind them are easily lost.' }}</p>
+            <blockquote>{{ language() === 'ar' ? 'كيف ننتقل من المعلومات المتفرقة إلى معرفة منظمة، ومن المعرفة المنظمة إلى فهم يستطيع الجمهور الوصول إليه؟' : 'How do we move from scattered information to organized knowledge, and from organized knowledge to understanding the public can access?' }}</blockquote>
           </div>
         </div>
-        <div class="floating-note note-one"><b>✓</b><span>{{ language() === 'ar' ? 'الادعاء مرتبط بدليله' : 'Claim linked to evidence' }}</span></div>
-        <div class="floating-note note-two"><b>90</b><span>{{ language() === 'ar' ? 'مصدراً تحت الرصد' : 'sources monitored' }}</span></div>
       </div>
     </section>
 
-    <section class="promise-strip">
-      <div><span>01</span>{{ language() === 'ar' ? 'مساحة واحدة بدل أدوات متفرقة' : 'One home instead of scattered tools' }}</div>
-      <div><span>02</span>{{ language() === 'ar' ? 'العربية في قلب التجربة' : 'Arabic at the heart of the experience' }}</div>
-      <div><span>03</span>{{ language() === 'ar' ? 'قرارك البحثي يبقى بيدك' : 'Your research judgment stays yours' }}</div>
-    </section>
-
-    <section class="section product-section" id="product">
-      <div class="product-intro">
-        <p class="section-number">01 — {{ language() === 'ar' ? 'ما هو منسج؟' : 'What is Mansaj?' }}</p>
-        <h2>{{ language() === 'ar' ? 'بيتٌ واحد لكل ما يصنع بحثك.' : 'One home for everything that shapes your research.' }}</h2>
-        <p>{{ language() === 'ar' ? 'منسج ليس محرك بحث آخر، ولا تطبيق ملاحظات جديداً. إنه مساحة عمل ترافقك من السؤال الأول إلى النسخة القابلة للنشر، وتحافظ على العلاقة بين ما قرأته، وما استنتجته، وما كتبته.' : 'Mansaj is not another search engine or note-taking app. It is a workspace that stays with you from the first question to a publishable version, preserving the relationship between what you read, concluded, and wrote.' }}</p>
-      </div>
-      <div class="product-jobs">
-        @for (item of (language() === 'ar' ? [
-          ['تلتقط ما يستحق انتباهك','بدلاً من تكديس الروابط التي لن تعود إليها.'],
-          ['تنمّي سؤالاً إلى قضية بحثية','مع أفكارها ومصادرها وأسئلتها المفتوحة.'],
-          ['تعرف لماذا تثق بكل فكرة','لأن الدليل والسياق يرافقان الادعاء.'],
-          ['تصل إلى مسودة قابلة للإنجاز','دون إعادة بناء بحثك في كل مرة تبدأ الكتابة.']
+    <section class="questions-section section" id="questions">
+      <div class="section-label"><span>04</span><p>{{ language() === 'ar' ? 'الأسئلة المركزية' : 'CENTRAL QUESTIONS' }}</p></div>
+      <div class="questions-heading"><h2>{{ language() === 'ar' ? 'ما الأسئلة التي ننشغل بها؟' : 'What questions occupy us?' }}</h2><p>{{ language() === 'ar' ? 'نعرّف المشروع بالأسئلة التي تقوده، لا بالمهام التي ينفذها.' : 'The project is defined by the questions that guide it, not by a list of tasks.' }}</p></div>
+      <div class="questions-list">
+        @for (question of (language() === 'ar' ? [
+          'ما التحولات التي تعيد تشكيل العالم؟',
+          'كيف تتغير موازين القوة بين الدول والقوى الدولية؟',
+          'ما الذي يقف خلف الأحداث التي نراها في الأخبار؟',
+          'كيف تتقاطع السياسة مع الاقتصاد والأمن والتكنولوجيا والتاريخ؟',
+          'كيف تتطور الاتجاهات الكبرى قبل أن تظهر نتائجها بصورة واضحة؟',
+          'كيف نفهم الحاضر من خلال التاريخ والمؤسسات والمسارات طويلة المدى؟',
+          'كيف تتشكل السرديات الإعلامية، وكيف تؤثر في إدراك الجمهور للأحداث؟'
         ] : [
-          ['Capture what deserves attention','Instead of accumulating links you never revisit.'],
-          ['Grow a question into a research case','With its ideas, sources, and open questions.'],
-          ['Know why you trust every idea','Because evidence and context stay with each claim.'],
-          ['Reach a draft you can finish','Without rebuilding your research whenever you write.']
-        ]); track item[0]) {
-          <article><span>✓</span><div><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></div></article>
+          'What transformations are reshaping the world?',
+          'How are balances of power between states and international actors changing?',
+          'What lies behind the events we see in the news?',
+          'How do politics intersect with economics, security, technology, and history?',
+          'How do major trends develop before their consequences become visible?',
+          'How can history, institutions, and long-term paths help us understand the present?',
+          'How are media narratives formed, and how do they shape public perception?'
+        ]); track question) {
+          <article><span>0{{ $index + 1 }}</span><h3>{{ question }}</h3></article>
         }
       </div>
+      <p class="closing-statement">{{ language() === 'ar' ? 'لا يبدأ عملنا من الخبر بوصفه نقطة النهاية، بل من السؤال الذي يجعل الخبر مفهوماً داخل سياقه.' : 'Our work does not begin with the news as an endpoint. It begins with the question that makes the news understandable in context.' }}</p>
     </section>
 
-    <section class="pain-section" id="benefits">
+    <section class="fields-section" id="fields">
       <div class="section">
-        <p class="section-number">02 — {{ language() === 'ar' ? 'ما الذي يتغير؟' : 'What changes?' }}</p>
-        <h2>{{ language() === 'ar' ? 'أقلّ بحثٍ ضائع. مزيدٌ من العمل المكتمل.' : 'Less lost research. More finished work.' }}</h2>
-        <div class="before-after">
+        <div class="section-label light"><span>05</span><p>{{ language() === 'ar' ? 'مجالات البحث' : 'RESEARCH FIELDS' }}</p></div>
+        <div class="fields-heading"><h2>{{ language() === 'ar' ? 'نبحث عبر مجالات تتقاطع داخل الظاهرة الواحدة.' : 'We work across fields that intersect within the same phenomenon.' }}</h2><p>{{ language() === 'ar' ? 'نفهم القضايا المركبة من أكثر من زاوية، من دون التعامل مع هذه المجالات كمسارات منفصلة.' : 'We approach complex issues from several angles without treating these fields as isolated tracks.' }}</p></div>
+        <div class="fields-list">
           @for (item of (language() === 'ar' ? [
-            ['قبل','مصادر في علامات المتصفح، ملاحظات في ملفات، وأفكار بلا سياق.','مع منسج','كل شيء يعود إلى السؤال والقضية التي ينتمي إليها.'],
-            ['قبل','تقرأ كثيراً، لكن يصعب أن تعرف ما الذي تعلّمته فعلاً.','مع منسج','ترى ما ثبت، وما يزال غير مؤكد، وما يحتاج إلى بحث إضافي.'],
-            ['قبل','تبدأ الكتابة فتعود إلى الصفر لجمع المادة من جديد.','مع منسج','تصل إلى الكتابة ومعك بنية وأدلة ومسار واضح للإكمال.']
+            ['الجغرافيا السياسية والعلاقات الدولية','موازين القوى، التحالفات، التنافس الدولي، والتحولات في النظام العالمي.'],
+            ['الاقتصاد والاقتصاد السياسي','الطاقة، التجارة، الموارد، سلاسل الإمداد، وعلاقة السياسات الاقتصادية بالقوة والنفوذ.'],
+            ['الأمن والدفاع','القدرات العسكرية، الصناعات الدفاعية، العقيدة والاستراتيجية، والتحولات الأمنية.'],
+            ['التاريخ وبناء الدولة','المسارات التاريخية التي شكلت الدول والمؤسسات والصراعات والتحولات السياسية.'],
+            ['التكنولوجيا والتحولات المستقبلية','الذكاء الاصطناعي، التكنولوجيا الاستراتيجية، وأثر التحولات التقنية سياسياً واقتصادياً وأمنياً.'],
+            ['الإعلام والسرديات','صناعة الروايات، تشكيل التصورات العامة، وتنافس السرديات حول القضايا والأحداث.']
           ] : [
-            ['Before','Sources in browser tabs, notes in files, and ideas without context.','With Mansaj','Everything returns to the question and case it belongs to.'],
-            ['Before','You read constantly but struggle to see what you truly learned.','With Mansaj','See what is established, uncertain, and still needs investigation.'],
-            ['Before','Writing begins by rebuilding the research from zero.','With Mansaj','Arrive at writing with structure, evidence, and a clear path to completion.']
-          ]); track item[1]) {
-            <article><div class="before"><small>{{ item[0] }}</small><p>{{ item[1] }}</p></div><span class="change-arrow">{{ language() === 'ar' ? '←' : '→' }}</span><div class="after"><small>{{ item[2] }}</small><p>{{ item[3] }}</p></div></article>
+            ['Geopolitics and international relations','Power balances, alliances, international competition, and changes in the global order.'],
+            ['Economics and political economy','Energy, trade, resources, supply chains, and the relationship between economic policy, power, and influence.'],
+            ['Security and defense','Military capabilities, defense industries, doctrine, strategy, and security transformations.'],
+            ['History and state formation','Historical paths that shaped states, institutions, conflicts, and political change.'],
+            ['Technology and future transformations','Artificial intelligence, strategic technologies, and their political, economic, and security effects.'],
+            ['Media and narratives','The construction of narratives, public perception, and competition over how issues and events are understood.']
+          ]); track item[0]) {
+            <article><span>0{{ $index + 1 }}</span><div><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></div></article>
           }
         </div>
       </div>
     </section>
 
-    <section class="section outcomes-section">
-      <div class="outcomes-heading">
-        <p class="section-number">03 — {{ language() === 'ar' ? 'ما الذي تكسبه؟' : 'What do you gain?' }}</p>
-        <h2>{{ language() === 'ar' ? 'وضوحٌ أثناء البحث. ثقةٌ عند النشر.' : 'Clarity while researching. Confidence when publishing.' }}</h2>
+    <section class="media-section" id="research-media">
+      <div class="media-statement">
+        <p class="section-number">06 — {{ language() === 'ar' ? 'البحث والإعلام' : 'RESEARCH AND MEDIA' }}</p>
+        <h2>{{ language() === 'ar' ? 'البحث عندنا جزء من صناعة المحتوى.' : 'Research is part of media production.' }}</h2>
+        <p>{{ language() === 'ar' ? 'لا يعمل الباحث في مسار منفصل عن الإعلام. تُبنى المادة البحثية نفسها منذ البداية لتصبح محتوى مرئياً دقيقاً وواضحاً ومتماسكاً.' : 'Researchers do not work on a path separated from media. The research material itself is built from the start to become precise, clear, and coherent visual content.' }}</p>
       </div>
-      <div class="outcomes-grid">
-        @for (item of (language() === 'ar' ? [
-          ['وضوح','تعرف دائماً أين وصلت وما الخطوة التالية.'],
-          ['ثقة','يمكنك الرجوع من كل ادعاء إلى الدليل الذي يدعمه.'],
-          ['استمرارية','لا تضيع المعرفة عندما تتوقف أو ينتقل العمل إلى زميل.'],
-          ['إنجاز','يتحول البحث تدريجياً إلى تحليل ومسودة ومحتوى.']
-        ] : [
-          ['Clarity','Always know where you are and what comes next.'],
-          ['Confidence','Trace every claim back to the evidence supporting it.'],
-          ['Continuity','Knowledge survives pauses and handoffs to teammates.'],
-          ['Completion','Research steadily becomes analysis, drafts, and content.']
-        ]); track item[0]) {
-          <article><span></span><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></article>
+      <div class="media-flow" aria-label="Research to impact flow">
+        @for (item of (language() === 'ar' ? [['البحث','تحديد الأدلة والمصادر'],['صناعة المحتوى المرئي','بناء المادة والفكرة'],['الجمهور','وصول الفهم بوضوح'],['الأثر','إضافة إلى الوعي العام']] : [['Research','Identify evidence and sources'],['Visual media production','Build the material and central idea'],['Audience','Make understanding accessible'],['Impact','Contribute to public awareness']]); track item[0]) {
+          <article><span>0{{ $index + 1 }}</span><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></article>
         }
+      </div>
+      <blockquote>{{ language() === 'ar' ? 'لا نبحث لكي نكتب فقط؛ نبحث لكي نبني محتوى يستطيع أن يصل إلى الناس.' : 'We do not research only to write. We research to build content that can reach people.' }}</blockquote>
+    </section>
+
+    <section class="researcher-section section">
+      <div class="section-label"><span>07</span><p>{{ language() === 'ar' ? 'الباحث داخل المشروع' : 'THE RESEARCHER' }}</p></div>
+      <div class="researcher-grid">
+        <div><h2>{{ language() === 'ar' ? 'ماذا يعني أن تكون باحثاً معنا؟' : 'What does it mean to research with us?' }}</h2><p>{{ language() === 'ar' ? 'أنت تسهم في بناء معرفة تتراكم وتُراجع وتُستخدم مرة أخرى، ثم تدخل في إنتاج محتوى يصل إلى الجمهور. الباحث هنا شريك في بناء المادة التي تتحول إلى معرفة عامة.' : 'You contribute to knowledge that accumulates, is reviewed, can be reused, and enters media production for a public audience. The researcher is a partner in building material that becomes public knowledge.' }}</p></div>
+        <div class="two-questions"><p>{{ language() === 'ar' ? 'يسأل الباحث سؤالين معاً' : 'THE RESEARCHER ASKS TWO QUESTIONS AT ONCE' }}</p><strong>{{ language() === 'ar' ? 'ماذا نعرف؟' : 'What do we know?' }}</strong><i></i><strong>{{ language() === 'ar' ? 'ماذا يمكن أن نبني من هذه المعرفة؟' : 'What can we build from this knowledge?' }}</strong></div>
       </div>
     </section>
 
-    <section class="who-section" id="for-whom">
-      <div class="section">
-        <div class="who-heading"><p class="section-number">04 — {{ language() === 'ar' ? 'لمن صُمّم؟' : 'Who is it for?' }}</p><h2>{{ language() === 'ar' ? 'لكل من يحوّل المعلومات إلى معرفة أو محتوى.' : 'For anyone turning information into knowledge or content.' }}</h2></div>
-        <div class="persona-grid">
-          <article><span>01</span><h3>{{ language() === 'ar' ? 'الباحث المستقل' : 'Independent researcher' }}</h3><p>{{ language() === 'ar' ? 'يجمع القراءات والأسئلة والأدلة حول موضوع طويل الأمد، ويريد أن يحتفظ بتراكمه الفكري بدلاً من البدء من جديد.' : 'Builds long-term questions, readings, and evidence—and wants intellectual progress to accumulate rather than restart.' }}</p><strong>{{ language() === 'ar' ? 'من سؤال مبهم إلى موقف بحثي واضح' : 'From a vague question to a clear research position' }}</strong></article>
-          <article class="persona-featured"><span>02</span><h3>{{ language() === 'ar' ? 'المؤلف والمحرر' : 'Author and editor' }}</h3><p>{{ language() === 'ar' ? 'يحتاج إلى تحويل المادة الكثيرة إلى حجة متماسكة، مع معرفة مصدر كل فكرة وحدود الثقة فيها قبل النشر.' : 'Needs to turn abundant material into a coherent argument while knowing the source and confidence boundary of every idea.' }}</p><strong>{{ language() === 'ar' ? 'من مادة متفرقة إلى مسودة موثقة' : 'From scattered material to a sourced draft' }}</strong></article>
-          <article><span>03</span><h3>{{ language() === 'ar' ? 'فريق البحث والمعرفة' : 'Research and knowledge team' }}</h3><p>{{ language() === 'ar' ? 'يوزّع العمل بين أعضائه، لكنه يحتاج إلى ذاكرة مشتركة ومسؤوليات واضحة واعتماد نهائي لا يضيع بين الرسائل.' : 'Distributes work across people while needing shared memory, clear responsibility, and explicit final approval.' }}</p><strong>{{ language() === 'ar' ? 'من جهود فردية إلى معرفة مؤسسية' : 'From individual effort to institutional knowledge' }}</strong></article>
+    <section class="accumulation-section">
+      <div class="section accumulation-inner">
+        <div class="section-label"><span>08</span><p>{{ language() === 'ar' ? 'ما الذي نبنيه؟' : 'WHAT WE ARE BUILDING' }}</p></div>
+        <h2>{{ language() === 'ar' ? 'من معرفة متفرقة إلى منظومة تزداد قيمتها مع الوقت.' : 'From scattered knowledge to a system that grows more valuable over time.' }}</h2>
+        <div class="accumulation-lines">
+          @for (item of (language() === 'ar' ? ['كل بحث جديد يرتبط بأبحاث سابقة.','كل معلومة تضيف إلى قاعدة معرفية أوسع.','كل تحليل يختبر أو يطوّر فهماً سابقاً.','كل محتوى يستفيد من معرفة بُنيت قبله.'] : ['Every new study connects to earlier research.','Every piece of information adds to a wider knowledge base.','Every analysis tests or develops prior understanding.','Every new production benefits from knowledge built before it.']); track item) {
+            <p><span></span>{{ item }}</p>
+          }
+        </div>
+        <p class="accumulation-end">{{ language() === 'ar' ? 'الغاية هي بناء قدرة مستمرة على الفهم وصناعة المحتوى، لا مجرد إنتاج محتوى متتابع.' : 'The goal is a lasting capacity for understanding and media production, rather than a sequence of disconnected outputs.' }}</p>
+      </div>
+    </section>
+
+    <section class="vision-section">
+      <span>09 — {{ language() === 'ar' ? 'رؤيتنا' : 'OUR VISION' }}</span>
+      <h2>{{ language() === 'ar' ? 'أن نبني منظومة معرفية وإعلامية تنتج فهماً أعمق للواقع، وتحول المعرفة المتخصصة إلى محتوى واضح وموثوق وذي أثر.' : 'To build a research and media initiative that produces deeper understanding and turns specialist knowledge into clear, trustworthy, consequential content.' }}</h2>
+    </section>
+
+    <section class="join-section section" id="join">
+      <div class="section-label"><span>10</span><p>{{ language() === 'ar' ? 'دعوة إلى الباحث' : 'AN INVITATION TO RESEARCHERS' }}</p></div>
+      <div class="join-grid">
+        <h2>{{ language() === 'ar' ? 'هل لديك معرفة يمكن أن تضيف إلى الصورة؟' : 'Do you have knowledge that can add to the picture?' }}</h2>
+        <div><p>{{ language() === 'ar' ? 'نبحث عن باحثين ومتخصصين يستطيعون المساهمة في فهم القضايا التي نعمل عليها، ونقل المعرفة من حدودها المتخصصة إلى محتوى يصل إلى الجمهور. إذا كان تخصصك يساعد في الإجابة عن أسئلتنا، فنريد أن نعرف عنك وعن مجالك.' : 'We are looking for researchers and specialists who can contribute to the issues we study and carry knowledge beyond specialist circles into content that reaches the public. If your field can help answer our questions, we want to hear about you and your work.' }}</p><span class="primary-button disabled-link" aria-disabled="true">{{ language() === 'ar' ? 'سيُعلن مسار المشاركة بعد اعتماده' : 'Participation channel pending approval' }}</span></div>
+      </div>
+    </section>
+
+    <section class="method-section" id="method">
+      <div class="section method-inner">
+        <div class="section-label light"><span>11</span><p>{{ language() === 'ar' ? 'كيف تتحول الفكرة إلى عمل؟' : 'HOW AN IDEA BECOMES WORK' }}</p></div>
+        <div class="method-grid">
+          @for (item of (language() === 'ar' ? [['البحث','تحديد الأسئلة والموضوعات وجمع الأدلة.'],['التحليل','ربط المعلومات وفهم السياقات والاتجاهات.'],['إعداد المادة','بناء المعرفة والمادة التي سيُنتج منها المحتوى.'],['الإنتاج الإعلامي','تحويل المعرفة إلى محتوى مرئي موجه للجمهور.']] : [['Research','Define questions and topics, then gather evidence.'],['Analysis','Connect information and understand contexts and trends.'],['Material development','Build the knowledge and material from which content will be produced.'],['Media production','Turn knowledge into visual content for the public.']]); track item[0]) {
+            <article><span>0{{ $index + 1 }}</span><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></article>
+          }
         </div>
       </div>
     </section>
 
-    <section class="section daily-section">
-      <div class="daily-copy"><p class="section-number">05 — {{ language() === 'ar' ? 'في يومك العملي' : 'In your working day' }}</p><h2>{{ language() === 'ar' ? 'يعمل بالطريقة التي يفكر بها الباحث.' : 'It works the way a researcher thinks.' }}</h2><p>{{ language() === 'ar' ? 'لن تحتاج إلى إدارة نظام معقّد. تبدأ بما لفت انتباهك، تربطه بسؤال، تطوّر فهمك، ثم تختار ما يستحق أن يتحول إلى عمل منشور.' : 'You do not need to manage a complicated system. Start with what caught your attention, connect it to a question, develop your understanding, then choose what deserves to become published work.' }}</p></div>
-      <div class="daily-steps">
-        @for (item of (language() === 'ar' ? [['التقط','مصدر، وثيقة، ملاحظة أو إشارة.'],['افهم','اربطها بسؤال وقارنها بما تعرفه.'],['ثبّت','ميّز الدليل عن الاستنتاج وحدّد الثقة.'],['اكتب','حوّل الفهم المتراكم إلى محتوى.']] : [['Capture','A source, document, note, or signal.'],['Understand','Connect it to a question and compare it with what you know.'],['Establish','Separate evidence from inference and state confidence.'],['Write','Turn accumulated understanding into content.']]); track item[0]) {
-          <article><span>{{ $index + 1 }}</span><div><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></div></article>
-        }
-      </div>
-    </section>
-
-    <section class="trust-section" id="trust">
-      <div class="section trust-inner">
-        <div class="trust-copy"><p class="section-number">06 — {{ language() === 'ar' ? 'الثقة دون ادّعاء' : 'Confidence without overclaiming' }}</p><h2>{{ language() === 'ar' ? 'يُظهر لك قوة المعرفة، ولا يتظاهر باليقين.' : 'It shows the strength of knowledge without pretending certainty.' }}</h2><p>{{ language() === 'ar' ? 'منسج يساعدك على رؤية أصل كل ادعاء ومستوى الثقة ومواطن عدم اليقين. ويمكنه كشف النواقص، لكن معنى الأدلة وكفاية البحث والقرار النهائي تبقى لك.' : 'Mansaj helps you see the origin of every claim, its confidence level, and key uncertainties. It can expose gaps, but the meaning of evidence, research sufficiency, and final judgment remain yours.' }}</p></div>
-        <div class="trust-cards">
-          <article><b>90</b><span>{{ language() === 'ar' ? 'مصدراً منظماً في رادار معرفي، تشمل السجلات الحكومية والقضائية والتشريعية والعقود.' : 'curated sources in a knowledge radar, including government, court, legislative, and contractual records.' }}</span></article>
-          <article><b>✓</b><span>{{ language() === 'ar' ? 'كل فكرة مهمة تحتفظ بطريق العودة إلى مصدرها ودليلها.' : 'Every important idea keeps a path back to its source and evidence.' }}</span></article>
-          <article><b>◎</b><span>{{ language() === 'ar' ? 'الثقة وعدم اليقين ظاهران، ولا يُمنع العمل منخفض الثقة آلياً.' : 'Confidence and uncertainty remain visible; low-confidence work is not automatically silenced.' }}</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="arabic-section">
-      <div class="arabic-orbit"><span>ض</span><i></i><i></i></div>
-      <div><p class="section-number">07 — ARABIC FIRST</p><h2>{{ language() === 'ar' ? 'العربية ليست ترجمةً لاحقة.' : 'Arabic is not an afterthought.' }}</h2><p>{{ language() === 'ar' ? 'الكتابة واتجاه الواجهة والمصطلحات ومسار العمل صُممت للعربية منذ البداية، مع توفر الإنجليزية عندما تحتاج إليها.' : 'Writing, interface direction, terminology, and workflow are designed around Arabic from the start, with English available when you need it.' }}</p></div>
-    </section>
-
-    <section class="final-cta" id="contact">
-      <div class="cta-thread"></div>
-      <p>{{ language() === 'ar' ? 'منسج — لأن المعرفة تستحق أن تبقى متصلة.' : 'Mansaj — because knowledge deserves to stay connected.' }}</p>
-      <h2>{{ language() === 'ar' ? 'اجمع بحثك. طوّر فهمك. أنجز ما بدأت.' : 'Gather your research. Develop your thinking. Finish what you started.' }}</h2>
-      <a class="light-button" href="mailto:eng.omar.kattan@gmail.com">{{ language() === 'ar' ? 'تواصل معنا' : 'Contact us' }}</a>
+    <section class="final-statement">
+      @if (language() === 'ar') { <h2>نبحث لكي نفهم.<br>نفهم لكي ننتج.<br><em>وننتج لكي يصل الفهم إلى الناس.</em></h2> }
+      @else { <h2>We research to understand.<br>We understand to produce.<br><em>We produce so understanding can reach people.</em></h2> }
+      <p class="contact-pending">{{ language() === 'ar' ? 'سيُعلن رابط التواصل بعد اعتماده.' : 'A contact channel will be announced once approved.' }}</p>
     </section>
   </main>
 
   <footer>
-    <div class="brand footer-brand"><span class="brand-mark"><i></i></span><span>{{ language() === 'ar' ? 'مَنسَج' : 'Mansaj' }}<small>MANSAJ</small></span></div>
-    <p>{{ language() === 'ar' ? 'مساحة عربية للبحث والكتابة وصناعة المعرفة.' : 'An Arabic-first workspace for research, writing, and knowledge creation.' }}</p>
-    <small>© {{ year }} Mansaj. {{ language() === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</small>
+    <div class="brand footer-brand"><span class="brand-mark"><i></i><i></i></span><span>{{ language() === 'ar' ? 'اسم قيد الانتظار' : 'Name Pending' }}<small>{{ language() === 'ar' ? 'اسم تجريبي مؤقت' : 'TEMPORARY NAME' }}</small></span></div>
+    <p>{{ language() === 'ar' ? 'مشروع معرفي وإعلامي' : 'Research and media project' }}</p>
+    <small>© {{ year }}. {{ language() === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</small>
   </footer>
 </div>

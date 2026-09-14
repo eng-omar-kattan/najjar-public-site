@@ -6,7 +6,7 @@ describe('App', () => {
   it('creates the public site', () => { expect(TestBed.createComponent(App).componentInstance).toBeTruthy(); });
   it('renders Arabic first', () => {
     const fixture = TestBed.createComponent(App); fixture.detectChanges();
-    expect((fixture.nativeElement as HTMLElement).querySelector('h1')?.textContent).toContain('لا تدع بحثك يتبعثر');
+    expect((fixture.nativeElement as HTMLElement).querySelector('h1')?.textContent).toContain('نبحث لفهم العالم');
     expect(document.documentElement.dir).toBe('rtl');
   });
 });
