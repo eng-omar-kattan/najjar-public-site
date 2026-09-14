@@ -1,9 +1,4 @@
 <div class="page-shell" [class.english]="language() === 'en'">
-  <div class="naming-notice">
-    <span>{{ language() === 'ar' ? 'اسم تجريبي مؤقت' : 'Temporary project name' }}</span>
-    <p>{{ language() === 'ar' ? 'طُلب اعتماد الاسم النهائي للمشروع عدة مرات، ولم يُحسم حتى الآن.' : 'A final project name has been requested several times and has not yet been approved.' }}</p>
-  </div>
-
   <header class="nav-wrap">
     <a class="brand" href="#top" aria-label="Project home" (click)="closeMenu()">
       <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
@@ -196,7 +191,7 @@
   </main>
 
   <footer>
-    <div class="brand footer-brand"><span class="brand-mark"><i></i><i></i></span><span>{{ language() === 'ar' ? 'اسم قيد الانتظار' : 'Name Pending' }}<small>{{ language() === 'ar' ? 'اسم تجريبي مؤقت' : 'TEMPORARY NAME' }}</small></span></div>
+    <div class="brand footer-brand"><span class="brand-mark"><i></i><i></i></span><span>{{ language() === 'ar' ? 'اسم قيد الانتظار' : 'Name Pending' }}<small>{{ language() === 'ar' ? 'مشروع معرفي وإعلامي' : 'RESEARCH AND MEDIA PROJECT' }}</small></span></div>
     <p>{{ language() === 'ar' ? 'مشروع معرفي وإعلامي' : 'Research and media project' }}</p>
     <small>© {{ year }}. {{ language() === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</small>
   </footer>
