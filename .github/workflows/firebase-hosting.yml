@@ -1,28 +1,27 @@
-name: Deploy to Firebase Hosting
+name: Disable Firebase Hosting
+
 on:
   push:
     branches: [main]
+    paths:
+      - .github/workflows/firebase-hosting.yml
   workflow_dispatch:
+
 permissions:
   contents: read
+
 concurrency:
   group: firebase-production
   cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  disable-hosting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run test -- --watch=false --browsers=ChromeHeadless
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NAJJAR_PUBLIC_SITE }}
-          channelId: live
-          projectId: najjar-website
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NAJJAR_PUBLIC_SITE }}
+
+      - name: Disable Firebase Hosting
+        run: npx --yes firebase-tools@latest hosting:disable --project najjar-website --force --non-interactive
